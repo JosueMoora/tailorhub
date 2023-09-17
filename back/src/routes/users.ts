@@ -1,12 +1,13 @@
 import { Router } from 'express'
-import { authenticateUser, registerUser, favorite, logout } from '../controllers/users.controllers'
-import { TokentValidation } from '../helpers/verifyToken'
+import { authenticateUser } from '../controllers/auth/login'
+import { signup } from '../controllers/auth/signup'
+import { logout } from '../controllers/auth/logout'
+import { verify } from '../controllers/auth/verify'
 const router = Router()
 
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
 router.post('/login', authenticateUser)
-router.post('/sign-up', registerUser)
+router.post('/sign-up', signup)
 router.get('/log-out', logout)
-router.get('/favorite', TokentValidation, favorite)
+router.get('/verify', verify)
 
 export default router

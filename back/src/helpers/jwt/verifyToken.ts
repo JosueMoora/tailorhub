@@ -1,12 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
-import { readUsersFile } from '../controllers/users.controllers'
-
-interface Payload {
-  id: number
-  iat: number
-  exp: number
-}
+import { readUsersFile } from '../users/getUsers'
+import { Payload } from '../../models/Payload'
 
 export const TokentValidation = (req: Request, res: Response, next: NextFunction): any => {
   const token = req.cookies.token
@@ -15,10 +10,8 @@ export const TokentValidation = (req: Request, res: Response, next: NextFunction
       msg: 'The token is required'
     })
   }
-
   try {
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions, @typescript-eslint/prefer-nullish-coalescing
-    const { id } = jwt.verify(token, process.env.TOKEN_SECRET || 'tokentest') as Payload
+    const { id } = jwt.verify(token, process.env.TOKEN_SECRET ?? 'tokentest') as Payload
     const users = readUsersFile()
     const user = users.find((u) => u.id === id)
     if (user == null) {
@@ -29,7 +22,7 @@ export const TokentValidation = (req: Request, res: Response, next: NextFunction
     req.body.id = id
     next()
   } catch (error) {
-    res.status(401).json({
+    return res.status(401).json({
       msg: 'Token is not valid'
     })
   }

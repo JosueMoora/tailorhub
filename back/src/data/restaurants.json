@@ -421,10 +421,9 @@
   },
   {
     "id": 11,
-    "name": "vitamina",
-    "neighborhood": "5-48 49th Ave, hipodromo, NY 11101",
-    "address": "El hipodromo",
-    "image": "https://video-images.vice.com/articles/590647db9ac0f921f03ed8d9/lede/1493583856927-mcf_halloween_017.jpeg?crop=1xw:0.8439609902475619xh;center,center&resize=1200:*",
-    "cuisineType": "Latin"
+    "name": "papi-pollo",
+    "neighborhood": "av aragua",
+    "address": "address",
+    "cuisineType": "pollo"
   }
 ]

@@ -3,6 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import restaurantsRouter from './routes/restaurants'
 import usersRouter from './routes/users'
+import favoritesRouter from './routes/favorites'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
 dotenv.config()
@@ -28,6 +29,7 @@ app.use(express.json())
 
 app.use('/api/restaurants', restaurantsRouter)
 app.use('/api', usersRouter)
+app.use('/api/favorites', favoritesRouter)
 
 app.listen(PORT, () => {
   console.log(`Server runing on port ${PORT}`)
