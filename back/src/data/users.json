@@ -4,15 +4,7 @@
     "name": "josue",
     "username": "josue20",
     "password": "$2b$10$t74oElUFlFjP1yWLXrljYuMXZcHDsjBP9.iX.3qUMblppvgS08C8e",
-    "favorite": [
-      {
-        "id": 11,
-        "name": "papi-pollo",
-        "neighborhood": "av aragua",
-        "address": "address",
-        "cuisineType": "pollo"
-      }
-    ]
+    "favorite": []
   },
   {
     "id": 2,

@@ -18,10 +18,15 @@ export function postFavorites (req: Request, res: Response): any {
     if (user == null) {
       return res.status(404).json('Usuario no encontrado')
     }
+    const isRestaurantInFavorites = user.favorite.some((restaurant) => restaurant.id === favorite.id)
+
+    if (isRestaurantInFavorites) {
+      return res.status(400).json('El restaurante ya está en la lista de favoritos')
+    }
     user.favorite.push(favorite)
 
     saveUsersFile(users)
-    return res.json(favorite)
+    return res.json(user?.favorite)
   } catch (error) {
     console.error('Error al agregar restaurante favorito:', error)
     return res.status(500).json('Error interno del servidor')
