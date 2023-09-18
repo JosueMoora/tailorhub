@@ -18,11 +18,12 @@ app.use(cors({
   ],
   credentials: true,
   origin: [
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'https://tailorhub-2b8f3ad8d-josuemoora.vercel.app/'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE']
 }))
-const PORT = process.env.PORT ?? 3000
+const PORT = process.env.PORT ?? 3001
 
 app.use(morgan('dev'))
 app.use(express.json())
