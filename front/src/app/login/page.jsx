@@ -1,5 +1,6 @@
 'use client'
 import { useAuth } from '@/context/AuthContext'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Login () {
@@ -22,14 +23,16 @@ export default function Login () {
     <div className="flex min-h-[90vh] justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col p-10 rounded gap-2 bg-[#8A945B]"
+        className="flex flex-col p-10 rounded items-center text-center gap-4 bg-[#0f0f0fda]"
       >
         {error && <div className='bg-red-500 text-white p-2'>{error}</div>}
-        <label>Usuario:</label>
-        <input onChange={handleChange} name="username" type="text" />
-        <label>Contraseña:</label>
-        <input onChange={handleChange} name="password" type="password" />
-        <button className="w-fit px-4 border border-black">Log-in</button>
+        <input onChange={handleChange} className='rounded w-64 p-2 bg-[#181717] placeholder:text-white' placeholder='Username' name="username" type="text" />
+        <input onChange={handleChange} placeholder='Password' className='rounded w-64 p-2 placeholder:text-white bg-[#181717] ' name="password" type="password" />
+        <button className="w-fit px-4 py-2 border rounded bg-[#181717]">Start</button>
+        <h1>
+        don&apos;t have an account ? <br />
+        <Link href="/signup" className='underline'> create one here</Link>
+        </h1>
       </form>
     </div>
   )

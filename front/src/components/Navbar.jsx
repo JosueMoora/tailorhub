@@ -5,8 +5,8 @@ import Link from 'next/link'
 export default function Navbar () {
   const { isAuth, signout } = useAuth()
   return (
-    <nav className="w-full bg-[#8A945B] fixed">
-      <ul className="flex gap-4 justify-end py-2 px-6 text-xl ">
+    <nav className="w-full border-b  z-10 bg-[#181717] border-[#292626]  py-4 fixed">
+      <ul className="flex gap-4 justify-end items-center py-1 px-6 text-xl ">
         <li>
           <Link href="/">Home</Link>
         </li>
@@ -20,18 +20,14 @@ export default function Navbar () {
               <Link href="/favorites">Favorites</Link>
             </li>
             <li>
-              <button onClick={signout}>Logout</button>
+              <button className='border rounded px-4 py-2' onClick={signout}>Logout</button>
             </li>
           </>
             )
           : (
           <>
-            <li>
+            <li className='border rounded px-4 py-2'>
               <Link href="/login">Login</Link>
-            </li>
-
-            <li>
-              <Link href="/signup">Sign-up</Link>
             </li>
           </>
             )}

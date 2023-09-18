@@ -5,6 +5,6 @@ export async function getRestaurants () {
   return data
 }
 export async function getRestaurant (id) {
-  const res = await axios.get(`http://localhost:3001/api/restaurants/${id}`)
-  return res
+  const { data } = await axios.get(`http://localhost:3001/api/restaurants/${id}`)
+  return data
 }

@@ -4,7 +4,59 @@
     "name": "josue",
     "username": "josue20",
     "password": "$2b$10$t74oElUFlFjP1yWLXrljYuMXZcHDsjBP9.iX.3qUMblppvgS08C8e",
-    "favorite": []
+    "favorite": [
+      {
+        "id": 2,
+        "name": "Emily",
+        "neighborhood": "Brooklyn",
+        "address": "919 Fulton St, Brooklyn, NY 11238",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/17/07/cd/40/the-colony-and-vodka.jpg",
+        "cuisine_type": "Pizza",
+        "operating_hours": {
+          "Monday": "5:30 pm - 11:00 pm",
+          "Tuesday": "5:30 pm - 11:00 pm",
+          "Wednesday": "5:30 pm - 11:00 pm",
+          "Thursday": "5:30 pm - 11:00 pm",
+          "Friday": "5:30 pm - 11:00 pm",
+          "Saturday": "5:00 pm - 11:30 pm",
+          "Sunday": "12:00 pm - 3:00 pm, 5:00 pm - 11:00 pm"
+        }
+      },
+      {
+        "id": 1,
+        "name": "Mission Chinese Food",
+        "neighborhood": "Manhattan",
+        "address": "171 E Broadway, New York, NY 10002",
+        "image": "https://video-images.vice.com/articles/590647db9ac0f921f03ed8d9/lede/1493583856927-mcf_halloween_017.jpeg?crop=1xw:0.8439609902475619xh;center,center&resize=1200:*",
+        "cuisine_type": "Asian",
+        "operating_hours": {
+          "Monday": "5:30 pm - 11:00 pm",
+          "Tuesday": "5:30 pm - 12:00 am",
+          "Wednesday": "5:30 pm - 12:00 am",
+          "Thursday": "5:30 pm - 12:00 am",
+          "Friday": "5:30 pm - 12:00 am",
+          "Saturday": "12:00 pm - 4:00 pm, 5:30 pm - 12:00 am",
+          "Sunday": "12:00 pm - 4:00 pm, 5:30 pm - 11:00 pm"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Casa Enrique",
+        "neighborhood": "Queens",
+        "address": "5-48 49th Ave, Queens, NY 11101",
+        "image": "https://i.pinimg.com/474x/47/b1/d3/47b1d3175589f19f58a35cfcd78b3e73--city-restaurants-mexican-restaurants.jpg",
+        "cuisine_type": "Mexican",
+        "operating_hours": {
+          "Monday": "5:00 pm - 12:00 am",
+          "Tuesday": "5:00 pm - 12:00 am",
+          "Wednesday": "5:00 pm - 12:00 am",
+          "Thursday": "5:00 pm - 12:00 am",
+          "Friday": "5:00 pm - 12:00 am",
+          "Saturday": "11:00 am - 12:00 am",
+          "Sunday": "11:00 am - 12:00 am"
+        }
+      }
+    ]
   },
   {
     "id": 2,

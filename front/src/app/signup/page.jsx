@@ -23,16 +23,13 @@ export default function Signup () {
     <div className="flex min-h-[90vh] justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col p-10 rounded gap-2 bg-[#8A945B]"
+        className="flex flex-col p-10 rounded items-center gap-4 bg-[#0f0f0fda]"
       >
         {error && <div className='bg-red-500 text-white p-2'>{error}</div>}
-        <label>Nombre:</label>
-        <input onChange={handleChange} name="name" type="text" />
-        <label>Usuario:</label>
-        <input onChange={handleChange} name="username" type="text" />
-        <label>Contraseña:</label>
-        <input onChange={handleChange} name="password" type="password" />
-        <button className="w-fit px-4 border border-black">Crear cuenta</button>
+        <input onChange={handleChange} name="name" type="text" className='rounded w-64 p-2 bg-[#181717] placeholder:text-white' placeholder='Name' />
+        <input onChange={handleChange} name="username" type="text" className='rounded w-64 p-2 bg-[#181717] placeholder:text-white' placeholder='Username' />
+        <input onChange={handleChange} name="password" type="password" className='rounded w-64 p-2 bg-[#181717] placeholder:text-white' placeholder='Password' />
+        <button className="w-fit px-4 py-2 border rounded bg-[#181717]">Create account</button>
       </form>
     </div>
   )

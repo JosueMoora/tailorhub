@@ -4,14 +4,13 @@ import { useAuth } from '@/context/AuthContext'
 
 export default function Favorites () {
   const { favorites } = useAuth()
-  console.log(favorites)
   return (
-    <div className="flex flex-col gap-4 pt-20 items-center min-h-[90vh]">
-      {favorites.length
+    <div className="flex flex-col gap-4 pt-20 items-center">
+      {favorites?.length
         ? (
-          <div className='flex flex-col gap-4 justify-center items-center'>
-          <h2>Estos son tus restaurantes favoritos:</h2>
-          <div className=" grid grid-cols-4 gap-8">
+          <div className='flex flex-col gap-10 justify-center items-center'>
+          <h1 className='text-4xl font-bold'>Estos son tus restaurantes favoritos:</h1>
+          <div className='flex flex-col gap-10'>
             {
             favorites?.map((res) => (
               <Card
@@ -23,6 +22,7 @@ export default function Favorites () {
                 cuisine_type={res.cuisine_type}
                 address={res.address}
                 neighborhood={res.neighborhood}
+                operating_hours={res.operating_hours}
               />
             ))}
           </div>

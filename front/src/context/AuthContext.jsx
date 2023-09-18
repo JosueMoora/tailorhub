@@ -52,7 +52,7 @@ export default function AuthProvider ({ children }) {
   }
   const verify = async () => {
     const data = await Verify()
-    if (data.username) {
+    if (data?.username) {
       setIsAuth(true)
       setUser(data)
     } else {
@@ -71,7 +71,6 @@ export default function AuthProvider ({ children }) {
   const postFav = async (favorite) => {
     try {
       const data = await postFavorite(favorite)
-      console.log(data)
       if (data) {
         setFavorites(data)
       }

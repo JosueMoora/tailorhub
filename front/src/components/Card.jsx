@@ -3,7 +3,15 @@ import { useAuth } from '@/context/AuthContext'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-export default function Card ({ id, name, image, cuisineType, cuisine_type, address, neighborhood }) {
+export default function Card ({
+  id,
+  name,
+  image,
+  cuisine_type,
+  address,
+  neighborhood,
+  operating_hours
+}) {
   const [isFav, setIsFav] = useState(false)
   const { isAuth, favorites, deleteFav, postFav } = useAuth()
   const handleFavorite = (e) => {
@@ -19,8 +27,8 @@ export default function Card ({ id, name, image, cuisineType, cuisine_type, addr
           neighborhood,
           address,
           image,
-          cuisineType,
-          cuisine_type
+          cuisine_type,
+          operating_hours
         }
       })
       setIsFav(true)
@@ -28,7 +36,7 @@ export default function Card ({ id, name, image, cuisineType, cuisine_type, addr
   }
   useEffect(() => {
     if (Array.isArray(favorites)) {
-      favorites?.forEach(fav => {
+      favorites?.forEach((fav) => {
         if (fav.id === id) {
           setIsFav(true)
         }
@@ -36,28 +44,58 @@ export default function Card ({ id, name, image, cuisineType, cuisine_type, addr
     }
   }, [favorites])
   return (
-    <div
-      key={id}
-      className="h-fit bg-white rounded-xl shadow-md overflow-hidden "
-    >
-      {isAuth ? isFav ? (<button onClick={handleFavorite}>❤️</button>) : (<button onClick={handleFavorite}>🤍</button>) : ''}
-      <div className="md:flex">
-        <div className="md:shrink-0">
-          <img
-            className="object-cover h-full w-48"
-            src={image}
-            alt={name}
-          />
+    <div className="flex items-center  bg-[#0f0f0fda] " key={id}>
+      <div className='flex'>
+      <img
+        className="object-cover w-[600px] h-[340px] "
+        src={image}
+        alt={name}
+      />
+      </div>
+      <div className=" flex flex-col gap-6 p-8 w-full">
+      {isAuth
+        ? (
+            isFav
+              ? (
+          <button className='text-right text-2xl' onClick={handleFavorite}>❤️</button>
+                )
+              : (
+          <button className='text-right text-2xl' onClick={handleFavorite}>🤍</button>
+                )
+          )
+        : (
+            ''
+          )}
+        <Link
+          href={`/restaurants/${id}`}
+          className="uppercase text-xl text-center font-semibold hover:duration-500 hover:scale-105"
+        >
+          {name}
+        </Link>
+        <div className='flex  justify-evenly'>
+        <div className='flex flex-col gap-4'>
+        <p className="uppercase text-lg">
+          {cuisine_type}
+        </p>
+        <p className="uppercase ">Address: {address}</p>
+        <p className="uppercase ">Neighborhood: {neighborhood}</p>
         </div>
-        <div className="p-8">
-          <Link href={`/restaurants/${id}`} className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-            {name}
-          </Link>
-          <p className="uppercase text-indigo-200">
-            {cuisine_type || cuisineType }
-          </p>
-          <p className="mt-2 text-slate-500">{address}</p>
-          <p className="mt-2 text-slate-500">{neighborhood}</p>
+        <div className='flex flex-col gap-4 '>
+        <p className="uppercase">hours:</p>
+        <div className='flex gap-5'>
+        <div className='flex flex-col gap-2'>
+        <p className="uppercase ">Monday: {operating_hours?.Monday}</p>
+        <p className="uppercase ">Tuesday: {operating_hours?.Tuesday}</p>
+        <p className="uppercase ">Wednesday: {operating_hours?.Wednesday}</p>
+        <p className="uppercase ">Thursday: {operating_hours?.Thursday}</p>
+        </div>
+        <div className='flex flex-col gap-2'>
+        <p className="uppercase ">Friday: {operating_hours?.Friday}</p>
+        <p className="uppercase ">Saturday: {operating_hours?.Saturday}</p>
+        <p className="uppercase ">Sunday: {operating_hours?.Sunday}</p>
+        </div>
+        </div>
+        </div>
         </div>
       </div>
     </div>
