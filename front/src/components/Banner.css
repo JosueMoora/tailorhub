@@ -1,0 +1,21 @@
+.scrolling_text {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    white-space: nowrap;
+
+}
+.text {
+    animation: animate_text 15s linear infinite
+}
+.text span {
+    margin: 0 5px;
+}
+@keyframes animate_text {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-100%, 0, 0);
+    }
+}

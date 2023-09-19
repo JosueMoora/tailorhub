@@ -44,58 +44,39 @@ export default function Card ({
     }
   }, [favorites])
   return (
-    <div className="flex items-center  bg-[#0f0f0fda] " key={id}>
-      <div className='flex'>
-      <img
-        className="object-cover w-[600px] h-[340px] "
-        src={image}
-        alt={name}
-      />
+    <div className='md:flex items-center' key={id}>
+      <div className={`flex justify-center ${id % 2 !== 0 && 'order-last'}`}>
+        <img
+          className="object-cover rounded-[50px] w-[300px]  lg:w-[600px] lg:h-[340px] "
+          src={image}
+          alt={name}
+        />
       </div>
-      <div className=" flex flex-col gap-6 p-8 w-full">
-      {isAuth
-        ? (
-            isFav
-              ? (
-          <button className='text-right text-2xl' onClick={handleFavorite}>❤️</button>
-                )
-              : (
-          <button className='text-right text-2xl' onClick={handleFavorite}>🤍</button>
-                )
-          )
-        : (
-            ''
-          )}
+      <div className=" flex flex-col gap-6 p-4 md:p-8 w-full">
+        {isAuth && (
+          <div className={`flex ${id % 2 === 0 && 'justify-end'}`}>
+            <button
+              className="w-fit text-xl md:text-2xl"
+              onClick={handleFavorite}
+            >
+              {isFav ? '❤️' : '🤍'}
+            </button>
+          </div>
+        )}
         <Link
           href={`/restaurants/${id}`}
-          className="uppercase text-xl text-center font-semibold hover:duration-500 hover:scale-105"
+          className="uppercase text-sm md:text-xl text-[#FDE1CA] text-center font-semibold hover:duration-500 hover:scale-105"
         >
           {name}
         </Link>
-        <div className='flex  justify-evenly'>
-        <div className='flex flex-col gap-4'>
-        <p className="uppercase text-lg">
-          {cuisine_type}
-        </p>
-        <p className="uppercase ">Address: {address}</p>
-        <p className="uppercase ">Neighborhood: {neighborhood}</p>
-        </div>
-        <div className='flex flex-col gap-4 '>
-        <p className="uppercase">hours:</p>
-        <div className='flex gap-5'>
-        <div className='flex flex-col gap-2'>
-        <p className="uppercase ">Monday: {operating_hours?.Monday}</p>
-        <p className="uppercase ">Tuesday: {operating_hours?.Tuesday}</p>
-        <p className="uppercase ">Wednesday: {operating_hours?.Wednesday}</p>
-        <p className="uppercase ">Thursday: {operating_hours?.Thursday}</p>
-        </div>
-        <div className='flex flex-col gap-2'>
-        <p className="uppercase ">Friday: {operating_hours?.Friday}</p>
-        <p className="uppercase ">Saturday: {operating_hours?.Saturday}</p>
-        <p className="uppercase ">Sunday: {operating_hours?.Sunday}</p>
-        </div>
-        </div>
-        </div>
+        <div className="flex text-sm md:text-lg flex-col gap-4">
+          <p className="uppercase text-sm max-md:text-center md:text-lg">
+            Cussine Type: {cuisine_type}
+          </p>
+          <div className="flex md:flex-col">
+            <p className="uppercase ">Address: {address}</p>
+            <p className="uppercase ">Neighborhood: {neighborhood}</p>
+          </div>
         </div>
       </div>
     </div>

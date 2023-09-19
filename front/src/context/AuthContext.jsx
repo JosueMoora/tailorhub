@@ -30,7 +30,6 @@ export default function AuthProvider ({ children }) {
         router.push('/login')
       }
     } catch (error) {
-      console.log(error)
       setError(error?.response?.data?.msg)
     }
   }
@@ -44,6 +43,7 @@ export default function AuthProvider ({ children }) {
       }
     } catch (error) {
       setError(error?.response?.data?.msg)
+      setLoading(false)
     }
   }
   const signout = async () => {

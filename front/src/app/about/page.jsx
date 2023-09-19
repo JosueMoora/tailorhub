@@ -1,30 +1,91 @@
+import Image from 'next/image'
+import img1 from '../../../public/about/img1.png'
+import img2 from '../../../public/about/img2.png'
+import img3 from '../../../public/about/img3.png'
+import img4 from '../../../public/about/img4.png'
+import img5 from '../../../public/about/img5.png'
+import img6 from '../../../public/about/img6.png'
+import img7 from '../../../public/about/img7.png'
+import Banner from '@/components/Banner'
+import Register from '@/components/Register'
 function About () {
   return (
-    <div className="flex flex-col items-center py-40  px-80 gap-10 ">
-      <h1 className="text-4xl font-semibold">Welcome to Our Restaurant App!</h1>
-      <p className="text-lg">
-        Our app provides you with a complete experience for exploring and
-        managing your list of favorite restaurants. We&apos;ve created this
-        platform with a focus on simplicity and convenience so you can fully
-        enjoy your culinary experiences.
-      </p>
-      <h2 className="text-3xl font-semibold">Features</h2>
-      <p className="leading-relaxed text-justify">
-        • <strong>Explore Restaurants:</strong> Discover a wide variety of restaurants at a glance.
-        Filter by cuisine type, location, and more to find the perfect spot for
-        your next meal. <br />
-        • <strong>Explore Restaurant Details:</strong> Get detailed information about each restaurant, including its
-        address, cuisine type, and more. Easily access the details you need to
-        make an informed decision. <br />
-        • <strong>Secure Authentication:</strong> Your security is our
-        priority. We use JWT token authentication to ensure that your personal
-        data and your list of favorites are protected. <br />
-        • <strong>Manage Your Sessions:</strong> Securely log in and log out of
-        your account. Your information will always be protected. <br />
-        • <strong>Add and Remove Favorites:</strong> Add new restaurants to your list of favorites or remove ones
-        that no longer interest you. Keep your personalized list up-to-date.
-      </p>
+    <>
+    <div className="flex flex-col items-center px-10  md:px-60 gap-10 overflow-hidden">
+      <h1 className="md:text-[100px] md:leading-[100px] text-[35px] leading-[35px] uppercase   font-black text-center bg-[url('../../public/background.png')] bg-cover bg-center bg-clip-text text-[#00000050]  ">
+        The <br /> Restaurants
+      </h1>
+      <div className="flex gap-5 md:gap-10">
+        <div>
+          <Image src={img1} alt="image" />
+        </div>
+        <div>
+          <Image src={img2} alt="image" />
+        </div>
+        <div>
+          <Image src={img3} alt="image" />
+        </div>
+      </div>
+      <Banner about={'ABOUT US'} />
+      <div className='flex flex-col gap-10'>
+      <div className="flex">
+        <div className="w-2/4 md:pl-60 md:pt-44 pt-10 pl-10 z-10">
+          <h1 className="md:text-8xl text-xl font-semibold">PHILOSOPHY</h1>
+          <p className="md:text-lg w-[120%]  text-xs">
+            Our service offers you a complete experience to explore and manage
+            your list of favorite restaurants. We have created this platform
+            with a focus on simplicity and convenience so you can fully enjoy
+            your dining experiences.
+          </p>
+        </div>
+        <div>
+          <Image src={img4} alt="image" />
+        </div>
+      </div>
+      <div className="flex">
+        <div>
+          <Image src={img5} alt="image" />
+        </div>
+        <div className="md:text-8xl text-xl md:pt-52 pt-16 z-10 w-2/4 font-semibold">
+          <h1>FEATURES</h1>
+        </div>
+      </div>
+      <div className="flex">
+          <div className="flex flex-col items-center gap-4 md:gap-10 md:text-lg text-xs">
+            <p className=" md:w-2/4 w-3/4">
+              1. 🍽️ Discover Restaurants: Quickly find a variety of restaurants.
+              Filter by cuisine, location, and more for your next meal.
+            </p>
+            <p className=" md:w-2/4 w-3/4">
+              2. 🏙️ Restaurant Details: Get info on each restaurant - address,
+              cuisine, and more. Easy access for informed choices.
+            </p>
+            <p className=" md:w-2/4 w-3/4">
+              3. 🔒 Secure Authentication: Your safety matters. We use JWT
+              tokens to safeguard your data and favorites.
+            </p>
+          </div>
+          <div>
+          <Image src={img6} alt="image" />
+          </div>
+        </div>
+      <div className="flex">
+          <div>
+          <Image src={img7} alt="image" />
+          </div>
+          <div className="flex flex-col items-center gap-4 md:gap-10 md:text-lg text-xs">
+            <p className="md:w-2/4 w-3/4">
+              4.🔐 Manage Sessions: Sign in and out securely. Your info is always protected.
+            </p>
+            <p className="md:w-2/4 w-3/4">
+              5 ❤️️ Add/Remove Favorites: Keep your list updated. Add new favorites or remove the ones you no longer love.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+      <Register />
+    </>
   )
 }
 

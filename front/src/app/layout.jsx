@@ -1,9 +1,7 @@
 import AuthProvider from '@/context/AuthContext'
 import Navbar from '../components/Navbar'
-// import Providers from './Providers'
 import './globals.css'
 import { Roboto } from 'next/font/google'
-
 const roboto = Roboto({ subsets: ['latin'], weight: '400' })
 
 export const metadata = {
@@ -16,7 +14,7 @@ export default function RootLayout ({ children }) {
       <body className={roboto.className}>
         <AuthProvider>
         <Navbar />
-        <main className="min-h-screen p-20">{children}</main>
+        <main className="min-h-screen py-20 md:py-40">{children}</main>
         </AuthProvider>
       </body>
     </html>

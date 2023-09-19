@@ -1,6 +1,6 @@
 import axios from 'axios'
 export async function login (user) {
-  const { data } = await axios.post('https://tailorhub-dev.fl0.io/api/login', user, {
+  const { data } = await axios.post('http://localhost:3001/api/login', user, {
     withCredentials: true,
     credentials: 'include',
     redirect: 'follow'
@@ -9,7 +9,7 @@ export async function login (user) {
 }
 
 export async function signup (user) {
-  const { data } = await axios.post('https://tailorhub-dev.fl0.io/api/sign-up', user, {
+  const { data } = await axios.post('http://localhost:3001/api/sign-up', user, {
     withCredentials: true,
     credentials: 'include',
     redirect: 'follow'
@@ -19,7 +19,7 @@ export async function signup (user) {
 
 export async function Logout () {
   try {
-    const { data } = await axios.get('https://tailorhub-dev.fl0.io/api/log-out', { withCredentials: true })
+    const { data } = await axios.get('http://localhost:3001/api/log-out', { withCredentials: true })
     alert(data)
     return data
   } catch (error) {
@@ -29,7 +29,7 @@ export async function Logout () {
 
 export async function Verify () {
   try {
-    const { data } = await axios.get('https://tailorhub-dev.fl0.io/api/verify', { withCredentials: true })
+    const { data } = await axios.get('http://localhost:3001/api/verify', { withCredentials: true })
     return data
   } catch (error) {
     console.log(error)
