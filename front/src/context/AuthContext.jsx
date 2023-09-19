@@ -17,6 +17,7 @@ export default function AuthProvider ({ children }) {
   const [user, setUser] = useState(null)
   const [favorites, setFavorites] = useState()
   const [isAuth, setIsAuth] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [errorFav, setErrorFav] = useState('')
   const router = useRouter()
@@ -29,7 +30,8 @@ export default function AuthProvider ({ children }) {
         router.push('/login')
       }
     } catch (error) {
-      setError(error.response.data.msg)
+      console.log(error)
+      setError(error?.response?.data?.msg)
     }
   }
   const setLogin = async (user) => {
@@ -37,16 +39,18 @@ export default function AuthProvider ({ children }) {
       const data = await login(user)
       if (data) {
         setIsAuth(true)
+        setLoading(false)
         router.push('/')
       }
     } catch (error) {
-      setError(error.response.data.msg)
+      setError(error?.response?.data?.msg)
     }
   }
   const signout = async () => {
     const data = await Logout()
     if (data) {
       setIsAuth(false)
+      setLoading(false)
       router.push('/')
     }
   }
@@ -64,6 +68,7 @@ export default function AuthProvider ({ children }) {
     const data = await getFavorite()
     if (data) {
       setFavorites(data)
+      setLoading(false)
     } else {
       setErrorFav('No tienes ningun favorito')
     }
@@ -73,20 +78,21 @@ export default function AuthProvider ({ children }) {
       const data = await postFavorite(favorite)
       if (data) {
         setFavorites(data)
+        setLoading(false)
       }
     } catch (error) {
-      setError(error.response.data.msg)
+      setError(error?.response?.data?.msg)
     }
   }
   const deleteFav = async (id) => {
     try {
       const data = await deleteFavorite(id)
-      console.log(data)
       if (data) {
         setFavorites(data)
+        setLoading(false)
       }
     } catch (error) {
-      setError(error.response.data.msg)
+      setError(error?.response?.data?.msg)
     }
   }
   useEffect(() => {
@@ -102,6 +108,8 @@ export default function AuthProvider ({ children }) {
         getFavs,
         postFav,
         deleteFav,
+        setLoading,
+        loading,
         favorites,
         user,
         error,

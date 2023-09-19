@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const getFavorite = async () => {
   try {
-    const { data } = await axios.get('http://localhost:3001/api/favorites', {
+    const { data } = await axios.get('https://tailorhub-dev.fl0.io/api/favorites', {
       withCredentials: true
     })
     return data.favorite
@@ -13,7 +13,7 @@ export const getFavorite = async () => {
 
 export const postFavorite = async (favorite) => {
   try {
-    const { data } = await axios.post('http://localhost:3001/api/favorites', favorite, {
+    const { data } = await axios.post('https://tailorhub-dev.fl0.io/api/favorites', favorite, {
       withCredentials: true
     })
     return data
@@ -23,7 +23,7 @@ export const postFavorite = async (favorite) => {
 }
 export const deleteFavorite = async (id) => {
   try {
-    const { data } = await axios.delete(`http://localhost:3001/api/favorites/${id}`, {
+    const { data } = await axios.delete(`https://tailorhub-dev.fl0.io/api/favorites/${id}`, {
       withCredentials: true
     })
     return data
