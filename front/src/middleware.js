@@ -7,8 +7,7 @@ export async function middleware (request) {
   }
 
   try {
-    const { payload } = await jwtVerify(token.value, new TextEncoder().encode(process.env.TOKEN_SECRET))
-    console.log(payload)
+    await jwtVerify(token?.value, new TextEncoder().encode(process.env.TOKEN_SECRET))
     return NextResponse.next()
   } catch (error) {
     console.error(error)
