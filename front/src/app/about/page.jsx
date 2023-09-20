@@ -12,7 +12,7 @@ function About () {
   return (
     <>
     <div className="flex flex-col items-center px-10  md:px-60 gap-10 overflow-hidden">
-      <h1 className="md:text-[100px] md:leading-[100px] text-[35px] leading-[35px] uppercase   font-black text-center bg-[url('../../public/background.png')] bg-cover bg-center bg-clip-text text-[#00000050]  ">
+      <h1 className="md:text-[100px] md:leading-[100px] text-[35px] leading-[35px] uppercase   font-black text-center bg-[url('../../../public/background.png')] bg-cover bg-center bg-clip-text text-[#00000050]  ">
         The <br /> Restaurants
       </h1>
       <div className="flex gap-5 md:gap-10">

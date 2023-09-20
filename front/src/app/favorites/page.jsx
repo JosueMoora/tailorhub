@@ -9,7 +9,7 @@ export default function Favorites () {
       {favorites?.length
         ? (
           <div className='flex flex-col px-5 md:px-20 gap-10'>
-          <h1 className="md:text-[100px] md:leading-[100px] text-[35px] leading-[35px] uppercase   font-black text-center bg-[url('../../public/background.png')] bg-cover bg-center bg-clip-text text-[#00000050]  ">
+          <h1 className="md:text-[100px] md:leading-[100px] text-[35px] leading-[35px] uppercase   font-black text-center bg-[url('../../../public/background.png')] bg-cover bg-center bg-clip-text text-[#00000050]  ">
         Your Favorite <br /> Restaurants
       </h1>
           <div className='flex flex-col gap-10'>
