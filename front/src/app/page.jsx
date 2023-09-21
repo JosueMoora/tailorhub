@@ -5,15 +5,14 @@ import Image from 'next/image'
 import res1 from '../../public/res1.png'
 import res2 from '../../public/res2.png'
 import Register from '@/components/Register'
+import Title from '@/components/Title'
 export default async function Home () {
   const restaurants = await getRestaurants()
   return (
     <div className="  flex flex-col">
       <div className='py-20 flex justify-center'>
       <Image src={res1} alt='restaurant' className='absolute max-md:w-16 left-0' />
-      <h1 className="2xl:text-[160px] 2xl:leading-[160px] xl:text-[140px] xl:leading-[140px] lg:text-[120px] lg:leading-[120px] md:text-[100px] md:leading-[100px] sm:text-[80px] sm:leading-[80px] text-[35px] leading-[35px] uppercase   font-black text-center bg-[url('../../public/background.png')] bg-cover bg-center bg-clip-text text-[#00000050]  ">
-        The Best <br /> Restaurants
-      </h1>
+      <Title title1={'The Best'} title2={'Restaurants'} />
       <Image src={res2} alt='restaurant' className='absolute max-md:w-16 right-0 top-32' />
       </div>
       <Banner />
