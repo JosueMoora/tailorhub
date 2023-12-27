@@ -7,7 +7,7 @@ export default function Register () {
         <p className='text-xl md:text-4xl md:w-[460px] italic leading-[60px] '>
         sign up for enjoy all the benefits of our app
         </p>
-        <Link href="/sigup" className='bg-[#FDE1CA] w-fit uppercase text-base md:text-lg ml-20 md:ml-60 px-7 py-3 text-black rounded-full'>Register</Link>
+        <Link href="/signup" className='bg-[#FDE1CA] w-fit uppercase text-base md:text-lg ml-20 md:ml-60 px-7 py-3 text-black rounded-full'>Register</Link>
       </div>
       </div>
   )
